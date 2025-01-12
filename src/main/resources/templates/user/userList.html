@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据表格页面</title>
+    <link rel="stylesheet" th:href="@{/css/style.default.css}" type="text/css" />
+    <script type="text/javascript" th:src="@{/js/plugins/jquery-1.7.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery-ui-1.8.16.custom.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.cookie.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.uniform.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom/general.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom/tables.js}"></script>
+    <script>
+
+
+
+    </script>
+</head>
+
+
+<body class="withvernav">
+<div class="bodywrapper">
+
+    <div th:replace="~{commons/bar::topheader}"></div>
+    <div th:replace="~{commons/bar::header}"></div>
+    <div th:replace="~{commons/bar::leftmenu}"></div>
+
+
+
+    <div class="centercontent tables">
+
+        <div class="pageheader notab">
+            <h1 class="pagetitle">用户列表</h1>
+        </div><!--pageheader-->
+
+        <div id="contentwrapper" class="contentwrapper">
+            <div class="tableoptions">
+                <a type="button" th:href="@{/user/toAddUser}">添加</a>
+            </div><!--tableoptions-->
+
+            <table cellpadding="0" cellspacing="0" border="0" id="dyntable2" class="stdtable">
+                <colgroup>
+                    <col class="con0" style="width: 4%" />
+                    <col class="con1" />
+                    <col class="con0" />
+                    <col class="con1" />
+                    <col class="con0" />
+                    <col class="con1" />
+                    <col class="con0" />
+                </colgroup>
+
+                <thead>
+                <tr>
+                    <th class="head0"></th>
+                    <th class="head1">商场编号</th>
+                    <th class="head0">用户名</th>
+                    <th class="head1">密码</th>
+                    <th class="head0">昵称</th>
+                    <th class="head0">操作</th>
+                </tr>
+                </thead>
+
+
+                <tbody>
+                <tr th:each="user:${users}">
+                    <td align="center"><input type="checkbox" /></td>
+                    <td th:text="${user.getId()}"></td>
+                    <td th:text="${user.getUsername()}"></td>
+                    <td th:text="${user.getPassword()}"></td>
+                    <td th:text="${user.getNickname()}"></td>
+                    <td class="center">
+                        <a th:href="@{/user/toUpdateUser/}+${user.getId()}">修改</a>
+                        <a th:href="@{/user/deleteUser/}+${user.getId()}">删除</a>
+                    </td>
+                </tr>
+
+
+
+                </tbody>
+            </table>
+
+            <br /><br />
+
+
+        </div><!--contentwrapper-->
+
+    </div><!-- centercontent -->
+
+
+</div><!--bodywrapper-->
+
+</body>
+</html>

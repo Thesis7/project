@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>数据表格页面</title>
+    <link rel="stylesheet" th:href="@{/css/style.default.css}" type="text/css" />
+    <script type="text/javascript" th:src="@{/js/plugins/jquery-1.7.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery-ui-1.8.16.custom.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.cookie.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.dataTables.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/plugins/jquery.uniform.min.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom/general.js}"></script>
+    <script type="text/javascript" th:src="@{/js/custom/tables.js}"></script>
+</head>
+
+
+<body class="withvernav">
+<div class="bodywrapper">
+
+    <div th:replace="~{commons/bar::topheader}"></div>
+    <div th:replace="~{commons/bar::header}"></div>
+    <div th:replace="~{commons/bar::leftmenu}"></div>
+
+
+
+    <div class="centercontent tables">
+
+        <div class="pageheader notab">
+            <h1 class="pagetitle">添加商场信息</h1>
+        </div><!--pageheader-->
+
+        <div id="contentwrapper" class="contentwrapper">
+
+            <form class="stdform" th:action="@{/mall/addMall}">
+                <p>
+                    <label>商场名称：</label>
+                    <span class="field">
+                        <input type="text" name="name" class="smallinput" />
+                    </span>
+                </p>
+                <p>
+                    <label>地址：</label>
+                    <span class="field">
+                        <input type="text" name="address" class="smallinput" />
+                    </span>
+                </p>
+                <p>
+                    <label>联系电话：</label>
+                    <span class="field">
+                        <input type="text" name="phone" class="smallinput" />
+                    </span>
+                </p>
+                <p class="stdformbutton">
+                    <button type="submit" class="stdbtn btn_blue">提交</button>
+                    <button type="button" onclick="history.back(-1)" class="stdbtn btn_yellow">返回</button>
+                </p>
+
+            </form>
+
+
+            <br /><br />
+
+
+        </div><!--contentwrapper-->
+
+    </div><!-- centercontent -->
+
+
+</div><!--bodywrapper-->
+
+</body>
+</html>

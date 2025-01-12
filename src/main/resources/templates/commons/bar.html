@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+
+<!--topheader-->
+<div class="topheader" th:fragment="topheader">
+    <div class="left">
+
+        <h1 class="logo"><span style="color: #d1e4f3">连锁商场管理系统</span></h1>
+        <span class="slogan">Shopping.Mall</span>
+
+        <div class="search">
+            <form action="" method="post">
+                <input type="text" name="keyword" id="keyword" placeholder="请输入" />
+                <button class="submitbutton"></button>
+            </form>
+        </div><!--search-->
+
+        <br clear="all" />
+
+    </div><!--left-->
+
+    <div class="right">
+
+        <div class="userinfo">
+            <img th:src="@{/images/thumbs/avatar.png}" alt="" />
+            <span th:text="${session.loginUsername}"></span>
+        </div><!--userinfo-->
+
+        <div class="userinfodrop">
+            <div class="avatar">
+                <a href=""><img th:src="@{/images/thumbs/avatarbig.png}" alt="" /></a>
+                <div class="changetheme">
+                    切换主题: <br />
+                    <a class="default"></a>
+                    <a class="blueline"></a>
+                    <a class="greenline"></a>
+                    <a class="contrast"></a>
+                </div>
+            </div><!--avatar-->
+            <div class="userdata">
+                <h4 th:text="${session.loginUsername}"></h4>
+                <span class="phone" th:text="${session.phone}"></span>
+                <ul>
+                    <li><a th:href="@{/user/logout}">退出</a></li>
+                </ul>
+            </div><!--userdata-->
+        </div><!--userinfodrop-->
+    </div><!--right-->
+</div>
+
+
+<!--header-->
+<div class="header" th:fragment="header">
+    <ul class="headermenu">
+        <li class="current"><a><span class="icon icon-flatscreen"></span>首页</a></li>
+    </ul>
+
+
+</div>
+
+
+<!--leftmenu-->
+<div class="vernav2 iconmenu" th:fragment="leftmenu">
+    <ul>
+        <li>
+            <a th:href="@{/mall/mallList}" class="addons">商场管理</a>
+        </li>
+
+        <li>
+            <a th:href="@{/dep/depList}" class="addons">部门管理</a>
+        </li>
+
+        <li>
+            <a th:href="@{/emp/empList}" class="addons">员工管理</a>
+        </li>
+
+        <li>
+            <a th:href="@{/user/userList}" class="addons">用户管理</a>
+        </li>
+
+    </ul>
+    <a class="togglemenu"></a>
+    <br /><br />
+</div>
+
+
+
+
+</html>

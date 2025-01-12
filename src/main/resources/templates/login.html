@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>系统登录</title>
+    <link rel="stylesheet" th:href="@{/css/style.default.css}" type="text/css"/>
+    <link rel="stylesheet" th:href="@{/css/style.ie9.css}"/>
+    <link rel="stylesheet" th:href="@{/css/style.ie8.css}"/>
+
+</head>
+
+<body class="loginpage">
+<div class="loginbox">
+    <div class="loginboxinner">
+
+        <div class="logo">
+            <h1 class="logo" style="font-family: 楷体;color: #d1e4f3" th:text="连锁商场管理系统"></h1>
+        </div><!--logo-->
+
+        <p style="color:red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+
+        <form id="login" th:action="@{/user/login}" method="post">
+
+            <div class="username">
+                <div class="usernameinner">
+                    <input type="text" name="username" id="username" th:placeholder="用户名"/>
+                </div>
+            </div>
+
+            <div class="password">
+                <div class="passwordinner">
+                    <input type="password" name="password" id="password" th:placeholder="密码"/>
+                </div>
+            </div>
+
+            <div>
+                <span style="font-size: medium;color: #d1e4f3" th:text="角色："></span>
+                <span class="field">
+                    <select name="authentication" style="font-size: small; width: 71%;text-align: center;">
+                        <option value="admin" th:text="商场管理人员"></option>
+                    </select>
+                </span>
+            </div>
+
+            <br>
+
+            <button th:text="登录"></button>
+            <a type="button" th:href="@{/user/toAddUser}">注册</a>
+
+        </form>
+
+    </div><!--loginboxinner-->
+
+    <!-- copyright -->
+    <div><p>Copyright &copy; 2022.Company name All rights reserved.</p></div>
+    <!-- //copyright -->
+
+</div><!--loginbox-->
+
+</body>
+</html>
